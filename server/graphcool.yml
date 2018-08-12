@@ -1,0 +1,112 @@
+# Welcome to Graphcool!
+#
+# This file is the main config file for your Graphcool Service.
+# It's very minimal at this point and uses default values.
+# We've included a hello world function here.
+# Just run `graphcool deploy` to have the first running Graphcool Service.
+#
+# Check out some examples:
+#    https://github.com/graphcool/framework/tree/master/examples
+#
+# Here are the reference docs of this definition format:
+# https://www.graph.cool/docs/reference/service-definition/graphcool.yml-foatho8aip
+#
+# Happy Coding!
+
+
+# In the types.graphql you define your data schema
+types: ./types.graphql
+
+
+functions:
+
+# added by email-password template: (please uncomment)
+
+  signup:
+    type: resolver
+    schema: src/email-password/signup.graphql
+    handler:
+      code: src/email-password/signup.js
+
+  authenticate:
+    type: resolver
+    schema: src/email-password/authenticate.graphql
+    handler:
+      code: src/email-password/authenticate.js
+
+  loggedInUser:
+    type: resolver
+    schema: src/email-password/loggedInUser.graphql
+    handler:
+      code: src/email-password/loggedInUser.js
+
+  hello:
+    handler:
+      code: src/hello.js
+    type: resolver
+    schema: src/hello.graphql
+
+
+# Model/Relation permissions are used to limit the API access
+# To take the burden of thinking about those while development, we
+# preconfigured the wildcard ("*") permission that allows everything
+# Read more here:
+# https://www.graph.cool/docs/reference/auth/authorization/overview-iegoo0heez
+permissions:  
+ - operation: "*"
+  # - operation: User.read
+  # - operation: User.create
+  # - operation: User.update
+  #   authenticated: true
+  #   query: src/permissions/User.graphql
+  # - operation: User.delete
+  #   authenticated: true
+  #   query: src/permissions/User.graphql
+
+  # - operation: Post.read
+  # - operation: Post.create
+  #   authenticated: true
+  # - operation: Post.update
+  #   authenticated: true
+  #   query: src/permissions/Post.graphql
+  # - operation: Post.delete
+  #   authenticated: true
+  #   query: src/permissions/Post.graphql
+
+  # - operation: Advert.read
+  # - operation: Advert.create
+  #   authenticated: true
+  # - operation: Advert.update
+  #   authenticated: true
+  #   query: src/permissions/Advert.graphql
+  # - operation: Advert.delete
+  #   authenticated: true
+  #   query: src/permissions/Advert.graphql
+
+  # - operation: Vote.read
+  # - operation: Vote.create
+  #   authenticated: true
+  # - operation: Vote.update
+  #   authenticated: true
+  #   query: src/permissions/Vote.graphql
+  # - operation: Vote.delete
+  #   authenticated: true
+  #   query: src/permissions/Vote.graphql
+
+  # - operation: AccessGroup.read
+  # - operation: AccessGroup.create
+  #   authenticated: true
+  # - operation: AccessGroup.update
+  #   authenticated: true
+  #   query: src/permissions/AccessGroup.graphql
+  # - operation: AccessGroup.delete
+  #   authenticated: true
+  #   query: src/permissions/AccessGroup.graphql
+
+
+# Your root tokens used for functions to get full access to the API
+# Read more here:
+# https://www.graph.cool/docs/reference/auth/authentication/authentication-tokens-eip7ahqu5o
+# rootTokens:
+#   - mytoken
+

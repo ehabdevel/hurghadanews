@@ -1,0 +1,46 @@
+{
+  "name": "hurghadanews",
+  "homepage": "https://ehabdevel.github.io/hurghadanews/",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "apollo-cache-inmemory": "^1.2.6",
+    "apollo-client": "^2.3.7",
+    "apollo-link": "^1.2.2",
+    "apollo-link-context": "^1.0.8",
+    "apollo-link-http": "^1.5.4",
+    "apollo-link-ws": "^1.0.8",
+    "apollo-upload-client": "^8.1.0",
+    "axios": "^0.18.0",
+    "dotenv": "^6.0.0",
+    "graphql": "^0.13.2",
+    "graphql-tag": "^2.9.2",
+    "mdbreact": "^4.6.0",
+    "react": "^16.4.1",
+    "react-apollo": "^2.1.9",
+    "react-dom": "^16.4.1",
+    "react-iframe": "^1.2.0",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
+    "redux-form": "^7.4.2",
+    "remark-react": "^4.0.3",
+    "subscriptions-transport-ws": "^0.9.14"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.2.0",
+    "remark-cli": "^5.0.0",
+    "remark-html": "^8.0.0",
+    "remark-preset-lint-markdown-style-guide": "^2.1.2"
+  }
+}

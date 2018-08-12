@@ -1,0 +1,11 @@
+query ($node_id: ID!, $user_id: ID!) {
+  SomeAccessGroupExists(
+    filter: {
+      id: $node_id,
+      author: {
+        id: $user_id
+      }
+      role: ADMIN
+    }
+  )
+}

@@ -1,0 +1,23 @@
+# query ($node_id: ID!, $user_id: ID!) {
+#   SomePostExists(
+#     filter: {
+#       id: $node_id,
+#       author: {
+#         id: $user_id
+#       }
+#       role: ADMIN
+#     }
+#   )
+# }
+
+query permitCreatePosts($node_id: ID!, $user_id: ID!, $author_id: ID!) {
+  SomePostExists(filter: {
+    AND: [{
+      id: $user_id
+    }, {
+      id: $author_id
+    }, {
+      role_in: [ADMIN, MODERATOR, EDITOR]
+    }]
+  })
+}

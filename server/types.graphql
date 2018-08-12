@@ -1,0 +1,88 @@
+# The following types define the data model
+
+type File @model {
+  contentType: String!
+  createdAt: DateTime!
+  id: ID! @isUnique
+  name: String!
+  secret: String! @isUnique
+  size: Int!
+  updatedAt: DateTime!
+  url: String! @isUnique
+  post: Post @relation(name: "FilesOnPosts")
+  advert: Advert @relation(name: "FilesOnAdverts")
+}
+
+# added by email-password template: (please uncomment)
+type User @model {
+  # Required system field:
+  id: ID! @isUnique # read-only (managed by Graphcool)
+
+  # Optional system fields (remove if not needed):
+  createdAt: DateTime! # read-only (managed by Graphcool)
+  updatedAt: DateTime! # read-only (managed by Graphcool)
+
+  email: String! @isUnique
+  password: String
+
+  name: String!
+  mobile: String
+  role: UserRole
+  posts: [Post!]! @relation(name: "UserPosts")
+  adverts: [Advert!]! @relation(name: "UsersAdverts")
+  votes: [Vote!]! @relation(name: "UsersVotes")
+  accessGroups: [AccessGroup!]! @relation(name: "AccessGroupMembers")
+}
+
+type Post @model {
+  id: ID! @isUnique
+  createdAt: DateTime!  # optional system field (read-only)
+  updatedAt: DateTime!  # optional system field (read-only)
+  title: String!
+  description: String!
+  newsUrl: String
+  # Every relation also required a back-relation (to determine 1:1, 1:n or n:m)
+  author: User! @relation(name: "UserPosts")
+  images: [File!]! @relation(name: "FilesOnPosts")
+  votes: [Vote!]! @relation(name: "VotesOnPosts")
+  accessGroups: [AccessGroup!]! @relation(name: "AccessGroupPosts")
+}
+
+type Advert @model {
+  id: ID! @isUnique     # required system field (read-only)
+  createdAt: DateTime!  # optional system field (read-only)
+  updatedAt: DateTime!  # optional system field (read-only)
+  title: String!
+  description: String!
+  adsUrl: String
+  postedBy: User @relation(name: "UsersAdverts")
+  pics: [File!]! @relation(name: "FilesOnAdverts")
+  votes: [Vote!]! @relation(name: "VotesOnAdverts")
+}
+
+type Vote @model {
+  id: ID! @isUnique
+  user: User! @relation(name: "UsersVotes")
+  post: Post @relation(name: "VotesOnPosts")
+  advert: Advert @relation(name: "VotesOnAdverts")
+}
+
+
+type AccessGroup @model {
+  id: ID! @isUnique
+  operation: AccessGroupOperation!
+  members: [User!]! @relation(name: "AccessGroupMembers")
+  posts: [Post!]! @relation(name: "AccessGroupPosts")
+}
+
+enum UserRole {
+  EDITOR,
+  MODERATOR,
+  ADMIN
+}
+
+enum AccessGroupOperation {
+  READ,
+  UPDATE,
+  DELETE
+}
