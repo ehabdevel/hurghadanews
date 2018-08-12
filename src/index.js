@@ -15,8 +15,6 @@ import 'mdbreact/dist/css/mdb.css';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 
-require('dotenv').config()
-
 const httpLink = createHttpLink({ uri: 'https://api.graph.cool/simple/v1/cjkklsqqw396301562tkf7ksa' })
 
 const middlewareLink = new ApolloLink((operation, forward) => {
