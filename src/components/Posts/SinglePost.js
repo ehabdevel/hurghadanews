@@ -15,7 +15,7 @@ class SinglePost extends React.Component {
     render() {
         if (this.props.postQuery.loading) {
             return (
-                <div className='flex w-100 h-100 items-center justify-center pt7'>
+                <div className='d-sm-flexpt-5'>
                     <div>
                         Loading...
                     </div>
@@ -57,9 +57,9 @@ class SinglePost extends React.Component {
                                 {Post.title}
                             </u>
                         </p>
-                        <div className="d-flex justify-content-between mt-3">
+                        <div className="d-sm-flex justify-content-between mt-3">
                             <small>
-                                <span className="d-inline-block text-truncate" style={{ maxWidth: 350 }}>
+                                <span className="d-inline-block text-truncate" style={{ maxWidth: 250 }}>
                                     Source: {Post.newsUrl}
                                 </span>
                             </small>

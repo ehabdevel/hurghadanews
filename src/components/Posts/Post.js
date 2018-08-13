@@ -15,7 +15,7 @@ export default class Post extends React.Component {
                         {this.props.post.title}
                     </Link>
                 </p>
-                <div className='d-flex py-3 my-3'>
+                <div className='d-sm-flex py-3 my-3'>
 
                     {this.props.post.images.map((image) => (
                         <div key={image.id} className="px-2 mx-2" style={{ maxWidth: 275 }}>
@@ -28,7 +28,7 @@ export default class Post extends React.Component {
                         {remark().use(reactRenderer).processSync(this.props.post.description.substr(0, 140) + "...").contents}
                     </div>
                 </div>
-                <div className='d-flex justify-content-between pt-3'>
+                <div className='d-sm-flex justify-content-between pt-3'>
                     <div className="">
                         <small>
                             <em className="d-inline-block text-truncate" style={{ maxWidth: 250 }}>
