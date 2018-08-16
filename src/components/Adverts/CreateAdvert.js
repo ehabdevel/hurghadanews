@@ -79,7 +79,7 @@ class CreateAdvert extends React.Component {
 
     return (
       <div className='w-100 p-3'>
-        <div class="alert alert-warning">
+        <div className="alert alert-warning">
           <ul>
             <li>Any advertising is allowed to have up to 140 letters.</li>
             <li>If your post includes a photo then upload the photo first to include it with your post</li>

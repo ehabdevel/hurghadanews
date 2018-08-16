@@ -79,7 +79,7 @@ class CreatePost extends React.Component {
 
         return (
             <div className='w-100 p-3'>
-                <div class="alert alert-warning">
+                <div className="alert alert-warning">
                     <ul>
                         <li>If your post includes a photo then upload the photo first to include it with your post</li>
                         <li>Every post or advertise can not have more than one photo.</li>

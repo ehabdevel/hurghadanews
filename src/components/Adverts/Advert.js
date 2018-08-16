@@ -7,7 +7,7 @@ export default class Advert extends React.Component {
 
     render() {
         return (
-            <div className='border-bottom border-light p-3 m-3'>
+            <div className="border-bottom border-light p-3 m-3">
 
                 <p className='h3'>
                     {this.props.advert.title}&nbsp;
